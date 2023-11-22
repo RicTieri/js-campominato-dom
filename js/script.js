@@ -2,6 +2,7 @@
 const gameBox = document.getElementById('game_box');
 const playButton = document.querySelector('button');
 
+
 playButton.addEventListener('click', function () {
   // cleaning the game box
   gameBox.innerHTML = ''
@@ -20,18 +21,21 @@ playButton.addEventListener('click', function () {
     const divSquare = getDivWithClassAndText('game_card', i);
     gameBox.appendChild(divSquare);
     
-    divSquare.style.width = `calc(100% / ${Math.sqrt(totalCard)})`
-    divSquare.style.height = `calc(100% / ${Math.sqrt(totalCard)})`
+    let squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
+    divSquare.style.width = squareSize;
+    divSquare.style.height = squareSize;
     
+    // Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
       console.log(i)
     })
   }
 })
-// Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
 
 
+
+// =============================================================== functoin ===============================================================
 
 /**
  * function to create a new div with designed class and text inside, doesn't append element
@@ -44,4 +48,16 @@ function getDivWithClassAndText(className, text) {
   divElement.classList.add(className);
   divElement.append(text);
   return divElement
+}
+
+
+function randomUniqueNumber(min, max, total){
+  const genNum = [];
+  while (genNum.length <= total){
+    let num = Math.floor(Math.random(max - min + 1) + min);
+    if (genNum.includes(num) != num){
+      genNum.push(num)
+    }
+  }
+  return genNum
 }
