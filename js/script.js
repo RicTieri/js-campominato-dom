@@ -18,23 +18,29 @@ playButton.addEventListener('click', function () {
 
   const squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
   const gameBomb = randomUniqueNumber(1, totalCard, 16);
-  console.log(gameBomb)
+  let score = 0;
   
+  console.log(gameBomb)
+
   for (let i = 1; i <= totalCard; i++) {
     const divSquare = getDivWithClassAndText('game_card', i);
     gameBox.appendChild(divSquare);
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
-   
-    
+
+    if (gameBomb.includes(i)) {
+      divSquare.classList.add('red');
+    }
+
+
     // active grid function
     divSquare.addEventListener('click', function () {
-      if (gameBomb.includes(i)){
-        divSquare.classList.add('red');
-      }
       divSquare.classList.add('clicked');
-      console.log(i)
+      divSquare.style.pointerEvents = 'none';
+      score += 1;
+      console.log(score)
     })
+
   }
 })
 
@@ -62,11 +68,11 @@ function getDivWithClassAndText(className, text) {
  * @param {*} total 
  * @returns array of unique number
  */
-function randomUniqueNumber(min, max, total){
+function randomUniqueNumber(min, max, total) {
   const genNum = [];
-  while (genNum.length < total){
-    let num = Math.floor(Math.random()*(max - min + 1) + min);
-    if (!genNum.includes(num)){
+  while (genNum.length < total) {
+    let num = Math.floor(Math.random() * (max - min + 1) + min);
+    if (!genNum.includes(num)) {
       genNum.push(num)
     }
   }
