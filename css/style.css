@@ -38,13 +38,38 @@ main{
   background-color: lightblue;
 }
 
-#game_box{
+.container{
+  position: relative;
   width: 600px;
   height: 600px;
   margin: 0 auto;
-  border: 1px solid black;
+}
+
+.container.bg-black{
+  background-color: black;
+}
+
+#game_box{
+  width: 600px;
+  height: 600px;
+  border: 2px solid black;
   display: flex;
   flex-wrap: wrap;
+}
+
+.game_over{
+  position: absolute;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+.game_card:hover{
+  background-color: aqua;
 }
 
 .game_card{
@@ -62,6 +87,17 @@ main{
 
 .game_card.clicked.red{
   background-color: brown;
+  color: white;
 }
 
+.counter{
+  margin: 3rem 0 0 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.counter span{
+  margin-right: .5rem;
+}
 
