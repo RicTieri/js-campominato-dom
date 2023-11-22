@@ -42,30 +42,46 @@ main{
   position: relative;
   width: 600px;
   height: 600px;
-  margin: 0 auto;
+  margin: auto;
 }
 
-.container.bg-black{
-  background-color: black;
+#popup-over{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.716);
+  color: white;
+  font-size: 2.5rem;
+}
+
+#popup-win{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.716);
+  color: white;
+  font-size: 2.5rem;
 }
 
 #game_box{
   width: 600px;
   height: 600px;
+  margin: auto;
   border: 2px solid black;
   display: flex;
   flex-wrap: wrap;
-}
-
-.game_over{
-  position: absolute;
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
 }
 
 .game_card:hover{
@@ -79,6 +95,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .game_card.clicked{
@@ -87,7 +104,6 @@ main{
 
 .game_card.clicked.red{
   background-color: brown;
-  color: white;
 }
 
 .counter{

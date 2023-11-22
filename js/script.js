@@ -1,14 +1,16 @@
 // L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-const gameContainer = document.querySelector('.container');
 const gameBox = document.getElementById('game_box');
 const playButton = document.querySelector('button');
 const scoreCount = document.getElementById('score');
-const gameOver = document.getElementById('game_over');
+const gameOver = document.getElementById('popup-over');
+const gameWin = document.getElementById('popup-win');
 
 playButton.addEventListener('click', function () {
   // cleaning the game box
   gameBox.innerHTML = '';
   gameBox.style.pointerEvents = 'auto';
+  gameOver.style.display = "none"; 
+  gameWin.style.display = "none"; 
   scoreCount.innerHTML = 0 ;
   // setting the grid based on level
   let gameLevel = document.querySelector('select').value;
@@ -23,6 +25,7 @@ playButton.addEventListener('click', function () {
 
   const squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
   const gameBomb = randomUniqueNumber(1, totalCard, 16);
+  const maxScore = totalCard - 16;
   let score = 0;
 
   console.log(gameBomb)
@@ -37,18 +40,20 @@ playButton.addEventListener('click', function () {
     // active grid function
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
-
       if (gameBomb.includes(i)) {
-        divSquare.classList.add('red');
-        gameContainer.classList.add('bg-black')
+        divSquare.classList.add('red')
+        gameOver.style.display = "flex" 
         gameBox.style.pointerEvents = 'none';
-      } else{
+      } else {
         divSquare.style.pointerEvents = 'none';
         score += 1;
       }
       scoreCount.innerHTML = score
       console.log(score)
     })
+  }
+  if (score = maxScore) {
+    gameWin.style.display = "flex" 
   }
 })
 
