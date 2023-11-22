@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+  width: 60%;
+  margin: auto;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav> *{
+  margin-left: 2rem;
+}
+
+nav select{
+  border: none;
+  font-size: 1.2rem;
+}
+
+main{
+  padding: 4rem;
+  background-color: lightblue;
+}
+
+#game_box{
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game_card{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_card.clicked{
+  background-color: azure;
+}
+
+
+button{
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 50px;
+}
