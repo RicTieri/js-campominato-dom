@@ -40,8 +40,6 @@ playButton.addEventListener('click', function () {
       divSquare.classList.add('red')
     }
 
-    let itemBomb = document.querySelectorAll('.red');
-    
     // active grid function
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
@@ -59,6 +57,7 @@ playButton.addEventListener('click', function () {
       scoreCount.innerHTML = score
     })
   }
+  let itemBomb = document.querySelectorAll('.red');
 })
 
 
