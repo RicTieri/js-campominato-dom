@@ -1,6 +1,6 @@
 // L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
 const gameBox = document.getElementById('game_box');
-const playButton = document.querySelector('button');
+const playButton = document.getElementById('play_btn');
 const scoreCount = document.getElementById('score');
 const gameOver = document.getElementById('popup-over');
 const gameWin = document.getElementById('popup-win');
@@ -28,10 +28,9 @@ playButton.addEventListener('click', function () {
   const maxScore = totalCard - 16;
   let score = 0;
 
-  console.log(gameBomb)
-
   for (let i = 1; i <= totalCard; i++) {
     const divSquare = getDivWithClassAndText('game_card', i);
+    divSquare.classList.add('flex');
     gameBox.appendChild(divSquare);
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
@@ -45,13 +44,15 @@ playButton.addEventListener('click', function () {
       divSquare.classList.add('clicked');
       if (gameBomb.includes(i)) {
         itemBomb.forEach(element => {
-          element.classList.add('clicked')
+          element.classList.add('clicked');
+          element.innerHTML = '<i class="fa-solid fa-bomb"></i>';
         });
         gameOver.style.display = "flex" 
       } else if (score == maxScore) {
-        gameWin.style.display = "flex" 
+        gameWin.style.display = "flex";
       } else {
         divSquare.style.pointerEvents = 'none';
+        divSquare.innerHTML = '<i class="fa-solid fa-lemon"></i>';
         score += 1;
       }
       scoreCount.innerHTML = score
@@ -62,10 +63,10 @@ playButton.addEventListener('click', function () {
 
 
 
-// =============================================================== functoin ===============================================================
+// =============================================================== function ===============================================================
 
 /**
- * function to create a new div with designed class and text inside, doesn't append element
+ * function to create a new div with one class and possible string inside; it doesn't append element directly and it doesn't add multiple class
  * @param {*} className 
  * @param {*} text 
  * @returns new div element
