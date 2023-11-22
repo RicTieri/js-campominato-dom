@@ -56,8 +56,10 @@ function randomUniqueNumber(min, max, total){
   const genNum = [];
   while (genNum.length < total){
     let num = Math.floor(Math.random()*(max - min + 1) + min);
-    genNum.push(num)
-    console.log(genNum.includes(num))
+    while (genNum.includes(num)){
+      num = Math.floor(Math.random()*(max - min + 1) + min);
+    }
+    genNum.push(num);
   }
   return genNum
 }
