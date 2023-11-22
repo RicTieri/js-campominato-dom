@@ -51,15 +51,20 @@ function getDivWithClassAndText(className, text) {
   return divElement
 }
 
-
+/**
+ * Function to generate a precise amount of random number between an interval including min and max
+ * @param {*} min 
+ * @param {*} max 
+ * @param {*} total 
+ * @returns array of unique number
+ */
 function randomUniqueNumber(min, max, total){
   const genNum = [];
   while (genNum.length < total){
     let num = Math.floor(Math.random()*(max - min + 1) + min);
-    while (genNum.includes(num)){
-      num = Math.floor(Math.random()*(max - min + 1) + min);
+    if (!genNum.includes(num)){
+      genNum.push(num)
     }
-    genNum.push(num);
   }
   return genNum
 }
