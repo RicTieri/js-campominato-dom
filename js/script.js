@@ -36,23 +36,27 @@ playButton.addEventListener('click', function () {
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
 
+    if (gameBomb.includes(i)) {
+      divSquare.classList.add('red')
+    }
+
+    let itemBomb = document.querySelectorAll('.red');
     
     // active grid function
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
       if (gameBomb.includes(i)) {
-        divSquare.classList.add('red')
+        itemBomb.forEach(element => {
+          element.classList.add('clicked')
+        });
         gameOver.style.display = "flex" 
-        // gameBox.style.pointerEvents = 'none';
+      } else if (score == maxScore) {
+        gameWin.style.display = "flex" 
       } else {
         divSquare.style.pointerEvents = 'none';
         score += 1;
       }
-      if (score == maxScore) {
-        gameWin.style.display = "flex" 
-      }
       scoreCount.innerHTML = score
-      console.log(score)
     })
   }
 })

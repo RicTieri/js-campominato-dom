@@ -45,21 +45,7 @@ main{
   margin: auto;
 }
 
-#popup-over{
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  width: 600px;
-  height: 600px;
-  background-color: rgba(0, 0, 0, 0.716);
-  color: white;
-  font-size: 2.5rem;
-}
-
+#popup-over,
 #popup-win{
   position: absolute;
   top: 0;
@@ -67,12 +53,28 @@ main{
   display: none;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-transform: uppercase;
   width: 600px;
   height: 600px;
   background-color: rgba(0, 0, 0, 0.716);
   color: white;
   font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.counter{
+  font-size: 2rem;
+  text-transform: lowercase;
+  margin: 3rem 0 0 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter span{
+  margin-right: 1rem;
 }
 
 #game_box{
@@ -105,15 +107,3 @@ main{
 .game_card.clicked.red{
   background-color: brown;
 }
-
-.counter{
-  margin: 3rem 0 0 0;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
-
-.counter span{
-  margin-right: .5rem;
-}
-

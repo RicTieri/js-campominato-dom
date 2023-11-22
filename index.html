@@ -12,23 +12,35 @@
   <header>
     <h1>Campominato</h1>
     <nav>
-        <select id="game_level">
-          <option value="1">facile</option>
-          <option value="2">medio</option>
-          <option value="3">difficile</option>
-        </select>
+      <select id="game_level">
+        <option value="1">facile</option>
+        <option value="2">medio</option>
+        <option value="3">difficile</option>
+      </select>
       <button>play</button>
     </nav>
   </header>
   <main>
-      <div class="container">
-        <div id="game_box"></div>
-        <div id="popup-over">game over</div>
-        <div id="popup-win">win</div>
+    <div class="container">
+      <div id="game_box"></div>
+      <div id="popup-over">
+        <div>
+          game over
+        </div>
+        <div class="counter">
+          <span>Score: </span>
+          <span id="score"></span>
+        </div>
       </div>
-    <div class="counter">
-      <span>Il tuo punteggio è: </span>
-      <span id="score"></span>
+      <div id="popup-win">
+        <div>
+          win
+        </div>
+        <div class="counter">
+          <span>Score: </span>
+          <span id="score"></span>
+        </div>
+      </div>
     </div>
   </main>
   <footer></footer>
