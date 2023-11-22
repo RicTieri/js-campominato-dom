@@ -2,8 +2,6 @@
 const gameBox = document.getElementById('game_box');
 const playButton = document.querySelector('button');
 
-console.log(randomUniqueNumber(2, 100, 20))
-
 playButton.addEventListener('click', function () {
   // cleaning the game box
   gameBox.innerHTML = ''
@@ -17,17 +15,23 @@ playButton.addEventListener('click', function () {
   } else {
     totalCard = 49
   }
-  // Ogni cella ha un numero progressivo, da 1 a 100.
+
+  const squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
+  const gameBomb = randomUniqueNumber(1, totalCard, 16);
+  console.log(gameBomb)
+  
   for (let i = 1; i <= totalCard; i++) {
     const divSquare = getDivWithClassAndText('game_card', i);
     gameBox.appendChild(divSquare);
-    
-    let squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
+   
     
-    // Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+    // active grid function
     divSquare.addEventListener('click', function () {
+      if (gameBomb.includes(i)){
+        divSquare.classList.add('red');
+      }
       divSquare.classList.add('clicked');
       console.log(i)
     })

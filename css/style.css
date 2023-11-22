@@ -26,6 +26,13 @@ nav select{
   font-size: 1.2rem;
 }
 
+button{
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 50px;
+}
+
 main{
   padding: 4rem;
   background-color: lightblue;
@@ -53,10 +60,8 @@ main{
   background-color: azure;
 }
 
-
-button{
-  font-size: 1rem;
-  padding: .5rem 1rem;
-  border: none;
-  border-radius: 50px;
+.game_card.clicked.red{
+  background-color: brown;
 }
+
+
