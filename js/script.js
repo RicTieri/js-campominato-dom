@@ -43,17 +43,17 @@ playButton.addEventListener('click', function () {
       if (gameBomb.includes(i)) {
         divSquare.classList.add('red')
         gameOver.style.display = "flex" 
-        gameBox.style.pointerEvents = 'none';
+        // gameBox.style.pointerEvents = 'none';
       } else {
         divSquare.style.pointerEvents = 'none';
         score += 1;
       }
+      if (score == maxScore) {
+        gameWin.style.display = "flex" 
+      }
       scoreCount.innerHTML = score
       console.log(score)
     })
-  }
-  if (score = maxScore) {
-    gameWin.style.display = "flex" 
   }
 })
 
