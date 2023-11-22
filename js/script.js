@@ -19,7 +19,7 @@ playButton.addEventListener('click', function () {
   const squareSize = `calc(100% / ${Math.sqrt(totalCard)})`;
   const gameBomb = randomUniqueNumber(1, totalCard, 16);
   let score = 0;
-  
+
   console.log(gameBomb)
 
   for (let i = 1; i <= totalCard; i++) {
@@ -28,19 +28,20 @@ playButton.addEventListener('click', function () {
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
 
-    if (gameBomb.includes(i)) {
-      divSquare.classList.add('red');
-    }
-
-
+    
     // active grid function
     divSquare.addEventListener('click', function () {
-      divSquare.classList.add('clicked');
-      divSquare.style.pointerEvents = 'none';
-      score += 1;
+      if (gameBomb.includes(i)) {
+        divSquare.classList.add('clicked');
+        divSquare.classList.add('red');
+        gameBox.style.pointerEvents = 'none';
+      } else{
+        divSquare.classList.add('clicked');
+        divSquare.style.pointerEvents = 'none';
+        score += 1;
+      }
       console.log(score)
     })
-
   }
 })
 
