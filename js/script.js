@@ -2,6 +2,7 @@
 const gameBox = document.getElementById('game_box');
 const playButton = document.querySelector('button');
 
+console.log(randomUniqueNumber(2, 100, 20))
 
 playButton.addEventListener('click', function () {
   // cleaning the game box
@@ -53,11 +54,10 @@ function getDivWithClassAndText(className, text) {
 
 function randomUniqueNumber(min, max, total){
   const genNum = [];
-  while (genNum.length <= total){
-    let num = Math.floor(Math.random(max - min + 1) + min);
-    if (genNum.includes(num) != num){
-      genNum.push(num)
-    }
+  while (genNum.length < total){
+    let num = Math.floor(Math.random()*(max - min + 1) + min);
+    genNum.push(num)
+    console.log(genNum.includes(num))
   }
   return genNum
 }
