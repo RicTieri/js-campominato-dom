@@ -1,10 +1,15 @@
 // L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
+const gameContainer = document.querySelector('.container');
 const gameBox = document.getElementById('game_box');
 const playButton = document.querySelector('button');
+const scoreCount = document.getElementById('score');
+const gameOver = document.getElementById('game_over');
 
 playButton.addEventListener('click', function () {
   // cleaning the game box
-  gameBox.innerHTML = ''
+  gameBox.innerHTML = '';
+  gameBox.style.pointerEvents = 'auto';
+  scoreCount.innerHTML = 0 ;
   // setting the grid based on level
   let gameLevel = document.querySelector('select').value;
   let totalCard;
@@ -31,15 +36,17 @@ playButton.addEventListener('click', function () {
     
     // active grid function
     divSquare.addEventListener('click', function () {
+      divSquare.classList.add('clicked');
+
       if (gameBomb.includes(i)) {
-        divSquare.classList.add('clicked');
         divSquare.classList.add('red');
+        gameContainer.classList.add('bg-black')
         gameBox.style.pointerEvents = 'none';
       } else{
-        divSquare.classList.add('clicked');
         divSquare.style.pointerEvents = 'none';
         score += 1;
       }
+      scoreCount.innerHTML = score
       console.log(score)
     })
   }
