@@ -29,7 +29,7 @@ playButton.addEventListener('click', function () {
   let score = 0;
 
   for (let i = 1; i <= totalCard; i++) {
-    const divSquare = getDivWithClassAndText('game_card', i);
+    let divSquare = getDivWithClassAndText('game_card', i);
     divSquare.classList.add('flex');
     gameBox.appendChild(divSquare);
     divSquare.style.width = squareSize;
@@ -43,10 +43,10 @@ playButton.addEventListener('click', function () {
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
       if (gameBomb.includes(i)) {
-        itemBomb.forEach(element => {
-          element.classList.add('clicked');
-          element.innerHTML = '<i class="fa-solid fa-bomb"></i>';
-        });
+        for (let index = 0; index < itemBomb.length; index++) {
+          itemBomb[index].classList.add('clicked');
+          itemBomb[index].innerHTML = '<i class="fa-solid fa-bomb"></i>';
+        }
         gameOver.style.display = "flex" 
       } else if (score == maxScore) {
         gameWin.style.display = "flex";
