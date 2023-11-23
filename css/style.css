@@ -116,6 +116,7 @@ main{
 .game_card.clicked{
   background-color: azure;
   color: goldenrod;
+  font-size: 1.3rem;
 }
 
 .game_card.clicked.red{

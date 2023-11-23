@@ -48,7 +48,7 @@ playButton.addEventListener('click', function () {
       if (gameBomb.includes(i)) {
         for (let index = 0; index < itemBomb.length; index++) {
           itemBomb[index].classList.add('clicked');
-          itemBomb[index].innerHTML = '<i class="fa-solid fa-bomb"></i>';
+          itemBomb[index].innerHTML = '<i class="fa-solid fa-bomb fa-beat"></i>';
         }
         gameOver.style.display = "flex" 
       } else if (score == maxScore) {
