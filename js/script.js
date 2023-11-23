@@ -1,17 +1,19 @@
-// L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
 const gameBox = document.getElementById('game_box');
 const playButton = document.getElementById('play_btn');
 const scoreCount = document.getElementById('score');
 const gameOver = document.getElementById('popup-over');
 const gameWin = document.getElementById('popup-win');
 
+// starting game function
 playButton.addEventListener('click', function () {
+  
   // cleaning the game box
   gameBox.innerHTML = '';
   gameBox.style.pointerEvents = 'auto';
   gameOver.style.display = "none"; 
   gameWin.style.display = "none"; 
   scoreCount.innerHTML = 0 ;
+
   // setting the grid based on level
   let gameLevel = document.querySelector('select').value;
   let totalCard;
@@ -27,18 +29,19 @@ playButton.addEventListener('click', function () {
   const gameBomb = randomUniqueNumber(1, totalCard, 16);
   const maxScore = totalCard - 16;
   let score = 0;
-
+  
+  // generating grid's element
   for (let i = 1; i <= totalCard; i++) {
     let divSquare = getDivWithClassAndText('game_card', i);
     divSquare.classList.add('flex');
-    gameBox.appendChild(divSquare);
     divSquare.style.width = squareSize;
     divSquare.style.height = squareSize;
-
+    gameBox.appendChild(divSquare);
+    
     if (gameBomb.includes(i)) {
       divSquare.classList.add('red')
     }
-
+    
     // active grid function
     divSquare.addEventListener('click', function () {
       divSquare.classList.add('clicked');
@@ -55,7 +58,7 @@ playButton.addEventListener('click', function () {
         divSquare.innerHTML = '<i class="fa-solid fa-lemon"></i>';
         score += 1;
       }
-      scoreCount.innerHTML = score
+      scoreCount.innerHTML = score;
     })
   }
   let itemBomb = document.querySelectorAll('.red');
